@@ -1,5 +1,7 @@
 package ru.netology.domain;
 
+import java.util.Objects;
+
 public class Book extends Product {
     private String author;
     int pages;
@@ -36,5 +38,19 @@ public class Book extends Product {
 
     public void setPublishedYear(int publishedYear) {
         this.publishedYear = publishedYear;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        if (!super.equals(o)) return false;
+        Book book = (Book) o;
+        return pages == book.pages && publishedYear == book.publishedYear && author.equals(book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), author, pages, publishedYear);
     }
 }

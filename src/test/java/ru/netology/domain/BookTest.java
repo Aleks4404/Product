@@ -7,14 +7,38 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookTest {
 
     @Test
+    public void shouldNotCastToDifferentClass1() {
+        Product product = new Book();
+    }
+
+    @Test
     public void shouldHaveAllFieldsAndMethodFromSuperClass() {
-        Book book = new Book();
+        Book book1 = new Book(
+                1,
+                "Идиот",
+                99,
+                "Author",
+                99,
+                1000);
+        Book book2 = new Book(1,
+                "Идиот",
+                99,
+                "Author",
+                99,
+                1000);
+        assertEquals(book1, book2);
 //    book.
     }
 
     @Test
     public void shouldCastFromBaseClass() {
-        Product product = new Book();
+        Product product = new Book(
+                1,
+                "Идиот",
+                99,
+                "Author",
+                99,
+                1000);
         if (product instanceof Book) {
             Book book = (Book) product;
 //      book.
